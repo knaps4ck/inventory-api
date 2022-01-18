@@ -1,10 +1,15 @@
 import mongoose, { Schema } from 'mongoose';
-import joi, { number } from 'joi'
+import Joi from 'joi'
 import IInventory from '../interfaces/inventory';
 
-export const joiSchema = joi.object().keys({
-    "name": joi.string().min(3).max(50).required(),
-    "quantity": joi.number().min(1).required()
+export const joiSchemaAdd = Joi.object().keys({
+    "name": Joi.string().min(3).max(50).required(),
+    "quantity": Joi.number().min(1).required()
+})
+
+export const joiSchemaUpdate = Joi.object().keys({    
+    "name": Joi.string().min(3).max(50).required(),
+    "quantity": Joi.number().min(1).required()
 })
 
 const InventorySchema: Schema = new Schema(

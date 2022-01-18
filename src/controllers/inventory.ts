@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import mongoose from 'mongoose';
-import Inventory from '../models/inventory';
-import { joiSchema } from '../models/inventory'
+import Inventory, { joiSchemaUpdate } from '../models/inventory';
+import { joiSchemaAdd } from '../models/inventory'
 
 const addInventory = async (req: Request, res: Response, next: NextFunction) => {
 
-    const {error, value} = await joiSchema.validate(req.body)
+    const {error, value} = await joiSchemaAdd.validate(req.body)
     
     if (error) {
         return res.status(400).json({
@@ -35,7 +35,7 @@ const addInventory = async (req: Request, res: Response, next: NextFunction) => 
         .save()
         .then((result) => {
             return res.status(200).json({
-                inventory: result
+                message: "Inventory item successfully added!"
             });
         })
         .catch((error) => {
@@ -97,7 +97,7 @@ const deleteInventory = async (req: Request, res: Response, next: NextFunction) 
 
 const updateInventory = async (req: Request, res: Response, next: NextFunction) => {
 
-    const {error, value} = await joiSchema.validate(req.body)
+    const {error, value} = await joiSchemaUpdate.validate(req.body, {stripUnknown: true})
     
     if (error) {
         return res.status(400).json({
