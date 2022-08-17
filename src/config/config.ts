@@ -12,9 +12,9 @@ const MONGO_OPTIONS = {
     retryWrites: false
 };
 
-const MONGO_USERNAME = process.env.MONGO_USERNAME || 'Your user name';
-const MONGO_PASSWORD = process.env.MONGO_USERNAME || 'Your password';
-const MONGO_HOST = process.env.MONGO_URL || `Your mongo URL`;
+const MONGO_USERNAME = process.env.MONGO_USERNAME ;
+const MONGO_PASSWORD = process.env.MONGO_PASSWORD ;
+const MONGO_HOST = process.env.MONGO_URL;
 
 const MONGO = {
     host: MONGO_HOST,
