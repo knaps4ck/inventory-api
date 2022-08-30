@@ -12,9 +12,9 @@ const MONGO_OPTIONS = {
     retryWrites: false
 };
 
-const MONGO_USERNAME = process.env.MONGO_USERNAME || 'bharatjb4';
-const MONGO_PASSWORD = process.env.MONGO_PASSWORD || 'bharatjb4-password';
-const MONGO_HOST = process.env.MONGO_URL || `cluster0.uavi8g6.mongodb.net/inventory`;
+const MONGO_USERNAME = process.env.MONGO_USERNAME || 'username';
+const MONGO_PASSWORD = process.env.MONGO_PASSWORD || 'password';
+const MONGO_HOST = process.env.MONGO_URL || `mongodb cluster url`;
 
 const MONGO = {
     host: MONGO_HOST,
